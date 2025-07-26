@@ -1,4 +1,149 @@
+/* Mobile first Design */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    font-size: 14px;
+}
+
+/* reusuable styles */
+
+:root {
+    /* colours */
+    /* primary */
+    --green-500: hsl(158, 36%, 37%);
+    --green-700: hsl(158, 42%, 18%);
+    /* neutral */
+    --black: hsl(212, 21%, 14%);
+    --grey: hsl(228, 12%, 48%);
+    --cream: hsl(30, 38%, 92%);
+    --white: hsl(0, 0%, 100%);
+
+    /* typography */
+
+    --text-preset-1: 700 32px/1 'Fraunces', sans-serif;
+    --text-preset-2: 700 14px/1.1 'Montserrat', sans-serif;
+    --text-preset-3: 500 14px/1.6 'Montserrat', sans-serif;
+    --text-preset-4: 500 12px/1.2 'Montserrat', sans-serif;
+    --text-preset-5: 500 13px/1.2 'Montserrat', sans-serif;
+    --default-letter-spacing: 0;
+    --special-letter-spacing: 5px;
+    
+    /* Spacing */
+    --spacing-500: 40px;
+    --spacing-400: 32px;
+    --spacing-300: 24px;
+    --spacing-200: 16px;
+    --spacing-100: 8px;
+    --spacing-50: 4px;
+
+}
+
+
+
+
+body {
+    min-height: 100vh;
+    background-color: var(--cream);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardContainer {
+    background-color: var(--white);
+    max-width: 350px;
+    max-height: 750px;
+    border-radius: 8px;
+    
+}
+
+.mobileImage {
+    max-width: 100%;
+    border-radius: 8px 8px 0 0;
+}
+/* Desktop image hidden */
+.desktopImage {
+    display: none;
+}
+
+.cardContent {
+    padding: var(--spacing-400);
+}
+
+
+/* Content - Styles */
+
+.label {
+    font: var(--text-preset-4);
+    letter-spacing: var(--special-letter-spacing);
+    color: var(--grey);
+}
+
+.perfumeName {
+    margin: var(--spacing-300) 0; /* created space between textContent */
+    font: var(--text-preset-1);
+}
+
+.description {
+    font: var(--text-preset-3);
+    color: var(--grey);
+}
+
+
+/* prices container */
+.pricesContainer {
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    margin: var(--spacing-300) 0;
+    /* Made space text content and button */
+
+}
+
+.newPrice {
+    font: var(--text-preset-1);
+    color: var(--green-500);
+    padding-right: var(--spacing-200); /* create space between prices */
+}
+
+.oldPrice {
+    font: var(--text-preset-5);
+    color: var(--grey);
+    text-decoration: line-through;
+}
+
+/* button - styles */
+
+.buttonContainer {
+    background-color: var(--green-500);
+    width: 100%;
+    border-radius: var(--spacing-100);
+
+    padding: var(--spacing-200) 0;
+    
+    display: flex;
+    justify-content: center;
+}
+
+/* button icon a little different from figma */
+.buttonIcon {
+    transform: rotate(0deg); /* flipped*/
+    overflow: visible;
+    display: block;
+}
+
+.buttonText {
+    font: var(--text-preset-2);
+    color: var(--white);
+    margin-left: var(--spacing-50);
+}
 
 /* attribution */
 
@@ -10,10 +155,57 @@
 @media (min-width: 768px) {
 
 
+
+.cardContainer {
+    max-width: 600px;
+    max-height: 456px;
+
+    display: flex;
+
+}
+
+.mobileImage {
+    display: none;
+}
+
+.desktopImage {
+    display: block;
+    max-height: 100%;
+    max-width: 300px;
+    object-fit: cover;
+
+    border-radius: 8px 0 0 8px;
+    
+}
+
+.pricesContainer {
+        margin: var(--spacing-400) 0;
+    /* Made space text content and button */
+
+}
+
+.buttonContainer:hover {
+    cursor: pointer;
+    background-color: var(--green-700);
+}
+
+
 /* attribution */
 .attribution { 
-    display: none;
+    display: block;
     font-size: 11px; text-align: center;
+    font: var(--text-preset-3);
+
+
+    position: absolute;
+    top: 25px;
+
 }
-.attribution a { color: hsl(228, 45%, 44%); }
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
+
+.attribution a:hover {
+    color: var(--green-700);
+}
 }
